@@ -9,6 +9,7 @@ dotenv.load_dotenv()
 if __name__=="__main__":
     api_key=os.getenv("API_KEY")
     base_url=os.getenv("BASE_URL")
+    model=os.getenv("MODEL")
 
     client=openai.OpenAI(
         api_key=api_key,
@@ -142,7 +143,7 @@ if __name__=="__main__":
 
         while True:
             response=client.chat.completions.create(
-                model="deepseek-v4-flash",
+                model=model,
                 messages=messages,
                 tools=tools
             )
